@@ -6,6 +6,7 @@ const productRoutes = require('./routes/productRoute')
 const customerRoutes = require('./routes/customerRoute')
 const adminRoutes = require('./routes/adminRoutes')
 const salesettingRoutes = require('./routes/salesettingRoutes')
+const companyRoutes = require('./routes/companyRoutes')
 const app = express()
 const port = 3000
 
@@ -15,6 +16,7 @@ app.use("/product",productRoutes)
 app.use("/customer",customerRoutes)
 app.use("/admin",adminRoutes)
 app.use("/salesettings",salesettingRoutes)
+app.use("/company",companyRoutes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
