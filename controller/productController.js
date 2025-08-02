@@ -1,5 +1,5 @@
 const Product = require("../model/productModel");
-
+const { imageUpload } = require("../utlis/imageUpload");
 
 
 const getAllproduct = async (req, res) => {
@@ -48,6 +48,7 @@ const addProduct = async (req, res) => {
      let imageUrl;
   if(req.file){
     imageUrl=await imageUpload(req.file.path);
+   
  }
     const data = req.body
     const products = new Product({...data,

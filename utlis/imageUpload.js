@@ -1,4 +1,4 @@
-const { cloudinaryInstance } = require("../config/cloudinaryConfig");
+const { cloudinaryInstance } = require("../config/cloudniaryconfig");
 
 const imageUpload = async(path)=>{
     try{

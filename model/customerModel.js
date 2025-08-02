@@ -5,7 +5,10 @@ const customerSchema = new mongoose.Schema({
    name:String,
    phone:String,
    email:String,
-   credit_limit:Number,
+   credit_limit:{
+      type: Number,
+      default:0
+   },
    address:String,
    city:String,
    state:String,
@@ -15,7 +18,10 @@ const customerSchema = new mongoose.Schema({
     default:"Unregistred"
    },
    taxno:String,
-   blocked:Boolean
+   blocked:{
+      type:Boolean,
+      default:false
+   }
   });
 
   const Customer = mongoose.model('Customer', customerSchema);

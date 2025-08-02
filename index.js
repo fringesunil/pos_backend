@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const categoryRoutes = require('./routes/categoryRoute')
 const productRoutes = require('./routes/productRoute')
 const customerRoutes = require('./routes/customerRoute')
+const adminRoutes = require('./routes/adminRoutes')
 const app = express()
 const port = 3000
 
@@ -11,6 +12,7 @@ app.use(express.json())
 app.use("/category",categoryRoutes)
 app.use("/product",productRoutes)
 app.use("/customer",customerRoutes)
+app.use("./admin",adminRoutes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
