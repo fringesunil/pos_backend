@@ -4,13 +4,11 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        trim: true
     },
     email: {
         type: String,
         required: true,
         unique: true,
-        trim: true,
         lowercase: true
     },
     password: {
@@ -19,7 +17,6 @@ const userSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        trim: true
     },
     role: {
         type: String,
@@ -36,7 +33,8 @@ const userSchema = new mongoose.Schema({
         default: true
     },
     lastLogin: {
-        type: Date
+        type: Date,
+        default: Date.now
     },
 
 }, {

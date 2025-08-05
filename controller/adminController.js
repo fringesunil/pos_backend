@@ -1,5 +1,6 @@
 const Admin = require("../model/adminModel");
-
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 
 const getAlladmin = async (req, res) => {
@@ -45,17 +46,21 @@ const getAdminbyId = async (req, res) => {
 
 const addAdmin = async (req, res) => {
   try {
-    const { name } = req.body;
-    const existingAdmin = await Admin.findOne({ name });
+    const { email,password, ...data } = req.body;
+    const existingAdmin = await Admin.findOne({ email });
     if (existingAdmin) {
       return res.status(400).json({
         success: false,
          data: [],
-        message: "User name already exists"
+        message: "Email already exists"
       });
     }
-
-    const Admins = new Admin(req.body);
+     const hash = bcrypt.hashSync(password, saltRounds);
+    const Admins = new Admin({
+        ...data,
+        email, 
+        password: hash,
+      });
     const savedAdmins = await Admins.save();
     
     res.status(201).json({

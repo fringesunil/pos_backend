@@ -28,6 +28,7 @@ const companySchema = new mongoose.Schema({
     gstNo: {
         type: String,
         trim: true,
+        default:""
     }
 }, {
     timestamps: true

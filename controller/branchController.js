@@ -63,7 +63,7 @@ const addbranch = async (req, res) => {
       });
     }
 
-    const branch = new branch(req.body);
+    const branch = new Branch(req.body);
     const savedbranch = await branch.save();
     
     res.status(201).json({
